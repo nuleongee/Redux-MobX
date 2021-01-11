@@ -4,10 +4,21 @@ const reducer = (prevState, action) => {
   switch (action.type) {
     case 'CHANGE_COMP_A':
       return {
+        ...prevState,
         compA: action.data,
-        compB: 12,
-        compC: null,
       };
+    case 'CHANGE_COMP_B':
+      return {
+        ...prevState,
+        compB: action.data,
+      };
+    case 'CHANGE_COMP_C':
+      return {
+        ...prevState,
+        compC: action.data,
+      };
+    default:
+      return prevState;
   }
 };
 const initialState = {
