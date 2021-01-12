@@ -28,8 +28,11 @@ const initialState = {
 };
 
 const store = createStore(reducer, initialState);
+store.subscribe(() => {
+  console.log('changed');
+});
 
-console.log(store.getState());
+console.log('1st', store.getState());
 
 // action
 const changeCompA = (data) => {
@@ -41,4 +44,4 @@ const changeCompA = (data) => {
 
 store.dispatch(changeCompA('b'));
 
-console.log(store.getState());
+console.log('2nd', store.getState());
