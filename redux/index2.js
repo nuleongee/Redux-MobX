@@ -69,7 +69,6 @@ store.dispatch(
 
 console.log('3rd', store.getState());
 
-
 store.dispatch(
   addPost({
     userId: 1,
