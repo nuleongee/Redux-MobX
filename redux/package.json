@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
   }
 }
