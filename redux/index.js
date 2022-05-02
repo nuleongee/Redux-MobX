@@ -4,24 +4,24 @@ const reducer = (prevState, action) => {
   switch (action.type) {
     case 'CHANGE_COMP_A':
       return {
+        ...prevState,
         compA: action.data,
-        compB: prevState?.compB ?? initState.compB,
-        compC: prevState?.compC ?? initState.compC,
       };
     case 'CHANGE_COMP_B':
       return {
-        compA: prevState?.compA ?? initState.compA,
+        ...prevState,
         compB: action.data,
-        compC: prevState?.compC ?? initState.compC,
       };
     case 'CHANGE_COMP_C':
       return {
-        compA: prevState?.compA ?? initState.compA,
-        compB: prevState?.compB ?? initState.compB,
+        ...prevState,
         compC: action.data,
       };
+    default: // 오타 방지
+      return prevState;
   }
 };
+
 const initState = {
   compA: 'a',
   compB: 12,
@@ -29,6 +29,9 @@ const initState = {
 };
 
 const store = createStore(reducer, initState);
+store.subscribe(() => {
+  console.log('changed');
+});
 
 console.log('1st', store.getState());
 
